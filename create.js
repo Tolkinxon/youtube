@@ -13,11 +13,10 @@ const [ , , ...items] = process.argv
                 
         if(users.some(user => user.name == newUser)) return console.log("This user already excist");
 
-        const user = {id: users.length ? users.at(-1) + 1 : 1, name:newUser};
+        const user = {id: users.length ? users.at(-1).id + 1 : 1, name:newUser};
         users.push(user);
 
         fs.writeFile(path.join(__dirname, "users.json"), JSON.stringify(users, null, 4));
         console.log("User successfully added");
-    }
-    return console.log('Semething went wrong')
+    } else return console.log('Semething went wrong')
 })(items);
