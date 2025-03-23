@@ -1,13 +1,13 @@
 {
   "name": "youtube",
   "version": "1.0.0",
-  "main": "index.js",
-  "type": "commonjs",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "node --watch src/server.js",
+    "start": "node src/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tolkinxon",
   "license": "ISC",
   "description": ""
 }
