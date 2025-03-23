@@ -1,9 +1,15 @@
 import http from "node:http";
-const PORT = process.env.PORT || 5000;
+import { serverConfig } from "./config.js";
+import { sendFile } from "./middlewares/sendFile.js";
+const { PORT } = serverConfig;
 
 const server = http.createServer((req, res)=>{
     const reqUrl = req.url.tirm().toLowerCase();
     const reqMethod = req.method.trim().toUpperCase();
+
+    if(!(reqUrl.startWidth('/api'))){
+        if(reqUrl == '/' && reqMethod == "GET") return sendFile('index', res);
+    }
 
 
 });
